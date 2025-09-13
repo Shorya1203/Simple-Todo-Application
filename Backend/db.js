@@ -7,7 +7,7 @@ const mongoose = require('mongoose') ;
 // }
 
  
-mongoose.connect("mongodb+srv://Shorya1203:ShoryaSharma@shoryacluster.eiyaa3j.mongodb.net/todos");
+mongoose.connect("mongodb+srv://<UserName>:<Password>@<ClusterAddress>/todos");
 
 const todoSchema = mongoose.Schema({
     title: String, 
