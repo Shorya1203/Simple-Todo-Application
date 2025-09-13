@@ -18,7 +18,7 @@ const updateTodo = zod.object({
     id: zod.string()  
 })
 
-module.export = {
+module.exports = {
     createTodo: createTodo,
     updateTodo: updateTodo
 }

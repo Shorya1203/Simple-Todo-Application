@@ -7,19 +7,19 @@ const mongoose = require('mongoose') ;
 // }
 
  
-mongoose.connect("mongodb+srv://<username>:<password>@<cluster>/todos");
+mongoose.connect("mongodb+srv://Shorya1203:ShoryaSharma@shoryacluster.eiyaa3j.mongodb.net/todos");
 
 const todoSchema = mongoose.Schema({
     title: String, 
     description: String,
-    completed: boolean
+    completed: Boolean
 })
 
 const todo = mongoose.model('todos', todoSchema) ; 
 
-module.exports({
+module.exports = {
     todo
-})
+}
 
 
 

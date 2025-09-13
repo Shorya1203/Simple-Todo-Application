@@ -1,8 +1,7 @@
 const express = require('express') ; 
 const app = express() ; 
-const {createTodo, updateTodo} = require('/types') ; 
+const {createTodo, updateTodo} = require('./types') ; 
 const {todo} = require('./db') ;
-
 app.use(express.json()) ; 
 
 // body:{ 
@@ -12,7 +11,7 @@ app.use(express.json()) ;
 app.post('/todo', async function(req, res){
 
     const createPayload = req.body ; 
-    const parsedPayload = createTodo.safeParse(createPayload) ; 
+    const parsedPayload = createTodo.safeParse(createPayload) ;
 
     if(!parsedPayload.success){
         res.status(411).json({
@@ -30,7 +29,7 @@ app.post('/todo', async function(req, res){
     })
 
     res.status(200).json({
-        msg: "user successfully signed up"
+        msg: "todo created successfully"
     }) ; 
 })
 
@@ -53,13 +52,13 @@ app.put('/completed', async function(req, res){
         return ; 
     }
 
-    todo.update({
+    await todo.updateOne({
         _id: req.body.id
     },{
         completed: true
     })
 
-    res.status(400).json({
+    res.status(200).json({
         msg: "Todo marked as updated"
     })
 
